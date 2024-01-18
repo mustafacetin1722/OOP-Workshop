@@ -44,35 +44,18 @@ public class UserService {
         }
         userCount--;
     }
-    public void getUserBYTC(String tc) {
+    public void getUserBYTC(int id) {
         int isUserFound = -1;
         for (int i = 0; i < userCount; i++) {
-            if (users[i].getTc().equals(tc)) {
+            if (users[i].getId()==id) {
                 isUserFound = i;
                 break;
             }
         }
         if (isUserFound != -1) {
-            User user = users[isUserFound];
             System.out.println("Kullanıcı İsmi:" + users[isUserFound].getName());
             System.out.println("Kullanıcı Soyismi: " + users[isUserFound].getLastName());
             System.out.println("kullanıcı TC:" + users[isUserFound].getTc());
-
-            int[] assignedBooks = user.getAssignedBooks();
-            System.out.println("Kullanıcının Atanmış Kitapları:");
-            if (assignedBooks.length > 0) {
-                for (int bookId : assignedBooks) {
-                    Book assignedBook = bookService.getBookById(bookId);
-                    if (assignedBook != null) {
-                        System.out.println(" - Kitap ID: " + assignedBook.getId());
-                        System.out.println("   Kitap İsmi: " + assignedBook.getName());
-                        System.out.println("   Yazar İsmi: " + assignedBook.getAuthorName());
-                        System.out.println("   Sayfa Sayısı: " + assignedBook.getPage());
-                    }
-                }
-            } else {
-                System.out.println("Kullanıcıya atanmış kitap bulunmamaktadır.");
-            }
         } else {
             System.out.println("Kullanıcı bulunamadı.");
         }

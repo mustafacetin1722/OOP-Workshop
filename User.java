@@ -15,18 +15,6 @@ public class User {
         this.assignedBooksCount = 0;
     }
 
-    public void assignBook(int bookId) {
-        assignedBooks[assignedBooksCount] = bookId;
-        assignedBooksCount++;
-    }
-    public boolean hasBook(int bookId) {
-        for (int assignedBookId : assignedBooks) {
-            if (assignedBookId == bookId) {
-                return true;
-            }
-        }
-        return false;
-    }
     public int[] getAssignedBooks() {
         return assignedBooks;
     }

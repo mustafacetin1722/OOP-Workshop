@@ -112,7 +112,7 @@ public class Main {
                     break;
                 case "10":
                     System.out.println("Kullanıcı ID giriniz.");
-                    String bookBYTC= scanner.nextLine();
+                    int bookBYTC= scanner.nextInt();
                     scanner.nextLine();
                     userService.getUserBYTC(bookBYTC);
                     break;
